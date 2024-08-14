@@ -1,0 +1,98 @@
+.filter-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .participant-container {
+        flex: 3;
+        gap: 24px;
+        display: flex;
+        padding: 16px 0px;
+        flex-direction: column;
+        
+        .selection-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .select-obj {
+                width: 32.5%;
+            }
+
+            .special-selection {
+                width: 32.5%;
+            }
+        }
+    }
+
+    .time-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 60px;
+
+        .child {
+            flex: 1;
+            gap: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .label {
+            font-size: 14px;
+            font-weight: 500;
+            color: black;
+        }
+
+        .child-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            > button {
+                color: gray;
+                font-weight: 500;
+                
+                border: none;
+                padding: 8px;
+                border-radius: 4px;
+                background-color: lightgray;
+    
+                &.active {
+                    color: white;
+                    font-weight: bold;
+
+                    background-color: orangered;
+                }
+            }
+        }
+    }
+
+    .button-container {
+        flex: 1;
+        gap: 16px;
+        display: flex;
+        padding: 12px 24px;
+        flex-direction: column;
+
+        > button {
+            border: none;
+            height: 48px;
+            border-radius: 24px;
+            background-color: lightgray;
+            
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn-report {
+            background-color: #3d8af7;
+        }
+
+        .btn-export {
+            background-color: #72bb53;
+        }   
+    }
+}

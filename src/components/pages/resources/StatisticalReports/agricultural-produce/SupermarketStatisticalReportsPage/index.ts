@@ -1,0 +1,3 @@
+import SupermarketStatisticalReportsPage from "./SupermarketStatisticalReportsPage";
+
+export default SupermarketStatisticalReportsPage;

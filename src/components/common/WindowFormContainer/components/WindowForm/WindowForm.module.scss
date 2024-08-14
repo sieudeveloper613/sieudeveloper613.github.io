@@ -1,0 +1,25 @@
+.window-form {
+    display: block;
+    z-index: 1;
+
+    width: 800px;
+    max-width: 95vw;
+    height: 500px;
+    max-height: 95vh;
+
+    border-radius: 5px;
+
+    background-color: #fff1d7;
+
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5), 5px 5px 7px rgba(0, 0, 0, 0.2);
+    transition: height 0.3s;
+    
+}
+
+.body {
+    display: block;
+    // overflow: hidden;
+
+    width: 100%;
+    height: calc(100% - 100px);
+}

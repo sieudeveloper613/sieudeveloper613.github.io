@@ -1,0 +1,97 @@
+@host = http://checkapi.crmdvs.vn
+#@host = http://127.0.0.1:3002
+
+
+### LOGIN
+POST {{host}}/login/sign-in
+Content-Type: application/json
+
+{
+    "userName": "trangtrai4te@gmail.com",
+    "password": "00000000"
+}
+
+###
+@auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzU3MjUzZDU5MTMzZDc5ZjMzNDZkNmMiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y2UiLCJyb2xlIjoiZmFybV9nYXJkZW4ifSwibmFtZSI6IlRyYW5nIFRy4bqhaSA0VEUiLCJvd25lcklkIjoiNjM1NzI1M2Q1OTEzM2Q3OWYzMzQ2ZDZjIiwiaWF0IjoxNjY3MjA3MTUzfQ.FwbrOG3IUZbZYLd0BHtxkuLBfP-qUcZOsr7aBjaSH2M;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzU3MjUzZDU5MTMzZDc5ZjMzNDZkNmMiLCJpYXQiOjE2NjcyMDcxNTN9.OSkEEFzrXcL5duBVrIq3pxSkYrRFagCkr-F-NK4_2pU
+
+
+
+
+
+### Liệt kê danh sách các khu vườn hiện tại
+GET {{host}}/resources/agricultural-produce/farm-garden/garden-code/list
+Authorization: {{auth}}
+###
+
+
+
+
+
+
+
+// API lấy thông tin khu vườn ở màn hình [3]
+// FIND =====================================================
+# 200 => Kiểu trả về: GardenDetailResponse.IFind
+# 404 => Sai path hoặc không tìm thấy thông tin khu vườn hoặc khu vườn chưa được khai báo
+
+###
+GET {{host}}/resources/agricultural-produce/farm-garden/garden-detail/find/63235945af655dc44d0b1692
+Authorization: {{auth}}
+###
+
+
+
+
+
+
+
+
+// API kiểm tra xem QRCode có hợp lệ
+# 200: Kiểu trả về => AgriculturalContainerResponse.IQrcodeAlreadyExist
+###
+GET {{host}}/resources/agricultural-produce/farm-garden/agricultural-container/check-if-qrcode-already-exists/qrcode1
+Content-Type: application/json
+Authorization: {{auth}}
+###
+
+
+
+
+
+### create ====================================================
+# Cấu trúc URL: /agricultural-container/create/<ID CỦA GARDEN_DETAIL>
+# 201: Thành công
+# 404: 
+# 400 Bad Request, This garden has not been declared !
+# 500: Lỗi server
+    # qrcode đã có chứa dữ liệu, không phải qrcode rỗng 
+
+###
+POST  {{host}}/resources/agricultural-produce/farm-garden/agricultural-container/create/632a94bb3f5262888a7481cc
+Content-Type: application/json
+Authorization: {{auth}}
+
+{
+    "containers": [
+        {
+            "qrcode": "qrcode8",
+            "weight": 50
+        },
+        {
+            "qrcode": "qrcode9",
+            "weight": 505
+        },
+        {
+            "qrcode": "qrcode10",
+            "weight": 54
+        },
+        {
+            "qrcode": "qrcode11",
+            "weight": 52
+        },
+        {
+            "qrcode": "qrcode12",
+            "weight": 51
+        }
+    ]
+}

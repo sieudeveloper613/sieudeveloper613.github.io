@@ -1,0 +1,156 @@
+# @host = http://checkapi.crmdvs.vn
+@host = http://127.0.0.1:3002
+# @auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MDg4MDgxMX0.CzfubPPPuZoraRFlq8tAlzusi5h74DuiYDvHyirQJ8E;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJpYXQiOjE2NjA4ODA4MTF9.pMXr06F1XSX26LAZ4HYOwxi32uxlTeH7JTMDNUiElFo
+
+
+### LOGIN
+POST {{host}}/login/sign-in
+Content-Type: application/json
+
+{
+    "userName": "trangtrai4te@gmail.com",
+    "password": "00000000"
+}
+
+###
+@auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzE0NzgxMjAzZTFjMDIxNzRkMGI3ZTkiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y2UiLCJyb2xlIjoiZmFybV9nYXJkZW4ifSwibmFtZSI6IlRyYW5nIHRy4bqhaSA0VEUgKE5PVC1SRU1PVkUpIiwib3duZXJJZCI6IjYyZjkwYjE0OGFmYmFkNWNjMjE4OTYxYiIsImlhdCI6MTY2MzczMDIwOX0.7AI0XwCAmeFS5K0ACNL_TohClZcJJFCx-XZzO9GjUME;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzE0NzgxMjAzZTFjMDIxNzRkMGI3ZTkiLCJpYXQiOjE2NjM3MzAyMDl9.hUDIXf7idbCp0tEZybZ1s9_UBJpcBJKTkcz1UPRZg7I
+
+
+
+
+
+
+
+
+
+
+
+
+
+### create ============================================
+# Method: POST
+# URL: /resources/agricultural-produce/farm-garden/plant-varieties/create
+
+# HTTP/1.1 400 Bad Request
+# IBadRequest
+
+
+# 201: Thành công
+# PlantVarietiesResponse.ICreate
+
+
+POST {{host}}/resources/agricultural-produce/farm-garden/plant-varieties/create
+Content-Type: application/json
+Authorization: {{auth}}
+
+{
+    "name": "Giống cây trồng 8",
+    "agricultureProduceName": "Tên giống cây trồng 8",
+    "createSuppliers": [
+        {
+            "name": "Nhà cung cấp 2.1"
+        },
+        {
+            "name": "Nhà cung cấp 2.2"
+        },
+        {
+            "name": "Nhà cung cấp 2.3"
+        },
+        {
+            "name": "Nhà cung cấp 2.4"
+        },
+        {
+            "name": "Nhà cung cấp 2.5"
+        },
+        {
+            "name": "Nhà cung cấp 2.6"
+        }
+    ]
+}
+
+
+
+
+
+
+### update =======================================================
+# Method: PATCH
+# URL: /resources/agricultural-produce/farm-garden/plant-varieties/update/<_id của đối tượng cần cập nhật>
+
+
+# HTTP/1.1 400 Bad Request
+# IBadRequest
+
+
+# 201: Thành công
+# PlantVarietiesResponse.IUpdate
+
+
+# 404: _id không tồn tại, _id không phải objectID
+
+
+# Not Found
+###
+PATCH  {{host}}/resources/agricultural-produce/farm-garden/plant-varieties/update/630848524debc523346e276f
+Content-Type: application/json
+Authorization: {{auth}}
+
+{
+    "createSuppliers": [
+        {
+            "name": "Nhà cung cấp mới thêm 2"
+        },
+        {
+            "name": "Nhà cung cấp mới thêm 3"
+        }
+    ],
+    "removeSuppliers": [
+        "630848524debc523346e2774",
+        "630848524debc523346e2773",
+        "630848524debc523346e2775"
+    ]
+}
+
+
+
+
+### remove
+# Method: DELETE
+# URL: /resources/agricultural-produce/farm-garden/plant-varieties/remove/<_id cần xóa>
+# body: undefined
+
+
+# 200: Xóa thành công
+# HTTP/1.1 200 OK
+
+
+# 404: _id cần xóa không tồn tại hoặc không phải objectId hoặc đã xóa rồi
+# HTTP/1.1 404 Not Found
+# Content-Type: text/plain; charset=utf-8
+
+# Not Found
+
+DELETE {{host}}/resources/agricultural-produce/farm-garden/plant-varieties/remove/630848524debc523346e276f
+Authorization: {{auth}}
+
+
+
+
+
+
+
+
+
+// List
+###
+GET {{host}}/resources/agricultural-produce/farm-garden/plant-varieties/list
+Authorization: {{auth}}
+
+
+
+
+
+// Find //====
+###
+GET {{host}}/resources/agricultural-produce/farm-garden/plant-varieties/find/632a82e58728b3cc029f2a18
+Authorization: {{auth}}

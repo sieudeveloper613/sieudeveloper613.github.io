@@ -1,0 +1,8 @@
+[submodule "src/sharetype"]
+	path = src/sharetype
+	url = https://github.com/dat-viet/checkee-sharetype.git
+
+
+[submodule "checkee-document"]
+	path = checkee-document
+	url = https://github.com/dat-viet/checkee-document.git

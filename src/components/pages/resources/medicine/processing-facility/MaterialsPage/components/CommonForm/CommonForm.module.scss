@@ -1,0 +1,28 @@
+.container {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    padding: 20px;
+
+    // background-color: blue;
+}
+
+.input-wrap {
+    display: flex;
+    flex: wrap;
+
+    width: 100%;
+    height: 140px;
+
+    padding: 20px;
+
+    >.text-field {
+        width: 50%;
+    }
+}
+
+.data-table-wrap {
+    padding: 20px;
+}

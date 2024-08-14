@@ -1,0 +1,16 @@
+.button-dropdown {
+    display: block;
+
+    width: 15px;
+    height: 100%;
+
+    outline: none;
+    border: none;
+    border-radius: 5px;
+
+    font-family: var(--icons-google);
+
+    &.readonly {
+        cursor: not-allowed;
+    }
+}

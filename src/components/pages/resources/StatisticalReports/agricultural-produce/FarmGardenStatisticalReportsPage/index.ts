@@ -1,0 +1,3 @@
+import FarmGardenStatisticalReportsPage from "./FarmGardenStatisticalReportsPage";
+
+export default FarmGardenStatisticalReportsPage;

@@ -1,0 +1,151 @@
+
+
+@auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzU3MjUzZDU5MTMzZDc5ZjMzNDZkNmMiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y2UiLCJyb2xlIjoiZmFybV9nYXJkZW4ifSwibmFtZSI6IlRyYW5nIFRy4bqhaSA0VEUiLCJvd25lcklkIjoiNjM1NzI1M2Q1OTEzM2Q3OWYzMzQ2ZDZjIiwiaWF0IjoxNjY3MjA3MTUzfQ.FwbrOG3IUZbZYLd0BHtxkuLBfP-qUcZOsr7aBjaSH2M;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzU3MjUzZDU5MTMzZDc5ZjMzNDZkNmMiLCJpYXQiOjE2NjcyMDcxNTN9.OSkEEFzrXcL5duBVrIq3pxSkYrRFagCkr-F-NK4_2pU
+
+
+
+### create ============================================
+# Method: POST
+# URL: /resources/agricultural-produce/farm-garden/garden-code/create
+
+# HTTP/1.1 400 Bad Request
+# Content-Type: application/json; charset=utf-8
+
+# {
+#   "error": [
+#     {
+#       "value": "A017",
+#       "msg": "code='A017' existed",
+#       "param": "code",
+#       "location": "body"
+#     }
+#   ]
+# }
+
+
+
+# 201: Thành công
+# HTTP/1.1 201 Created
+# Content-Type: application/json; charset=utf-8
+
+# {
+#   "_id": "630243922b868df9a65e1f3a",
+#   "code": "A017",
+#   "createdAt": "2022-08-21T14:39:14.142Z"
+# }
+
+
+POST http://127.0.0.1:3002/resources/agricultural-produce/farm-garden/garden-code/create
+Content-Type: application/json
+# Authorization: accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MDg4MDgxMX0.CzfubPPPuZoraRFlq8tAlzusi5h74DuiYDvHyirQJ8E;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJpYXQiOjE2NjA4ODA4MTF9.pMXr06F1XSX26LAZ4HYOwxi32uxlTeH7JTMDNUiElFo
+Authorization: accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZjNDMzNGRhZDg1Y2QwODI3N2EyYWMiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MDg4MTU4Mn0.cNIRhg1ffz68r0V3V1Gh7sXN3Z5IlhWVaLcN-AOaY-o;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZjNDMzNGRhZDg1Y2QwODI3N2EyYWMiLCJpYXQiOjE2NjA4ODE1ODJ9.0F84vApA3iF7vf5IeQkoxb7440YHzNt1jhABg_0JIzo
+
+{
+    "code": "A018 (will be delete)"
+}
+
+
+
+
+
+
+### update =======================================================
+# Method: PATCH
+# URL: /resources/agricultural-produce/farm-garden/garden-code/update/<_id của đối tượng cần cập nhật>
+
+
+
+# 200: Thành công
+# HTTP/1.1 200 OK
+# Content-Type: application/json; charset=utf-8
+
+# {
+#   "_id": "630243922b868df9a65e1f3a",
+#   "code": "A017 Update",
+#   "createdAt": "2022-08-21T14:39:14.142Z"
+# }
+
+
+
+# 400:
+# HTTP/1.1 400 Bad Request
+# Content-Type: application/json; charset=utf-8
+
+# {
+#   "error": [
+#     {
+#       "value": "a630243922b868df9a65e1f3a",
+#       "msg": "'id' must be ObjectId",
+#       "param": "id",
+#       "location": "params"
+#     }
+#   ]
+# }
+
+
+
+# 404: _id không tồn tại
+# HTTP/1.1 404 Not Found
+# Content-Type: text/plain; charset=utf-8
+
+# Not Found
+###
+PATCH  http://127.0.0.1:3002/resources/agricultural-produce/farm-garden/garden-code/update/630243922b868df9a65e1f3a
+Content-Type: application/json
+# Authorization: accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MDg4MDgxMX0.CzfubPPPuZoraRFlq8tAlzusi5h74DuiYDvHyirQJ8E;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJpYXQiOjE2NjA4ODA4MTF9.pMXr06F1XSX26LAZ4HYOwxi32uxlTeH7JTMDNUiElFo
+Authorization: accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZjNDMzNGRhZDg1Y2QwODI3N2EyYWMiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MDg4MTU4Mn0.cNIRhg1ffz68r0V3V1Gh7sXN3Z5IlhWVaLcN-AOaY-o;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZjNDMzNGRhZDg1Y2QwODI3N2EyYWMiLCJpYXQiOjE2NjA4ODE1ODJ9.0F84vApA3iF7vf5IeQkoxb7440YHzNt1jhABg_0JIzo
+
+{
+    "code": "A017 Update"
+}
+
+
+
+
+### remove
+# Method: DELETE
+# URL: /resources/agricultural-produce/farm-garden/garden-code/remove/<_id cần xóa>
+# body: undefined
+
+
+# 200: Xóa thành công
+# HTTP/1.1 200 OK
+
+
+# 400: 
+# {
+#   "error": [
+#     {
+#       "value": "a630244f8d4352398b831ba06",
+#       "msg": "'id' must be ObjectId",
+#       "param": "id",
+#       "location": "params"
+#     }
+#   ]
+# }
+
+
+# 404: _id cần xóa không tồn tại hoặc không phải objectId hoặc đã xóa rồi
+# HTTP/1.1 404 Not Found
+# Content-Type: text/plain; charset=utf-8
+
+# Not Found
+
+DELETE http://127.0.0.1:3002/resources/agricultural-produce/farm-garden/garden-code/remove/630244f8d4352398b831ba06
+# Authorization: accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MDg4MDgxMX0.CzfubPPPuZoraRFlq8tAlzusi5h74DuiYDvHyirQJ8E;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJpYXQiOjE2NjA4ODA4MTF9.pMXr06F1XSX26LAZ4HYOwxi32uxlTeH7JTMDNUiElFo
+Authorization: accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZjNDMzNGRhZDg1Y2QwODI3N2EyYWMiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MDg4MTU4Mn0.cNIRhg1ffz68r0V3V1Gh7sXN3Z5IlhWVaLcN-AOaY-o;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZjNDMzNGRhZDg1Y2QwODI3N2EyYWMiLCJpYXQiOjE2NjA4ODE1ODJ9.0F84vApA3iF7vf5IeQkoxb7440YHzNt1jhABg_0JIzo
+
+
+
+
+
+
+
+
+###
+GET http://checkapi.crmdvs.vn/resources/agricultural-produce/farm-garden/garden-code/list
+Authorization: {{auth}}
+
+#######
+GET http://checkapi.crmdvs.vn/resources/agricultural-produce/farm-garden/agricultural-container/check-if-qrcode-already-exists/thung002
+Authorization: {{auth}}

@@ -1,0 +1,285 @@
+@host = http://checkapi.crmdvs.vn
+# @host = http://127.0.0.1:3002
+
+
+### LOGIN
+POST {{host}}/login/sign-in
+Content-Type: application/json
+
+{
+    "userName": "trangtrai4te@gmail.com",
+    "password": "00000000"
+}
+
+###
+@auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzU3MjUzZDU5MTMzZDc5ZjMzNDZkNmMiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y2UiLCJyb2xlIjoiZmFybV9nYXJkZW4ifSwibmFtZSI6IlRyYW5nIFRy4bqhaSA0VEUiLCJvd25lcklkIjoiNjM1NzI1M2Q1OTEzM2Q3OWYzMzQ2ZDZjIiwiaWF0IjoxNjY3MjA3MTUzfQ.FwbrOG3IUZbZYLd0BHtxkuLBfP-qUcZOsr7aBjaSH2M;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzU3MjUzZDU5MTMzZDc5ZjMzNDZkNmMiLCJpYXQiOjE2NjcyMDcxNTN9.OSkEEFzrXcL5duBVrIq3pxSkYrRFagCkr-F-NK4_2pU
+
+
+
+
+### Liệt kê danh sách các khu vườn hiện tại
+GET {{host}}/resources/agricultural-produce/farm-garden/garden-code/list
+Authorization: {{auth}}
+###
+
+
+
+# =========================================================================================================
+
+
+// QUÉT QR CODE =========================================================================
+# Lấy thông tin khu vườn sau khi quét ================================================
+# Cấu trúc URL: .../garden-detail/find/<GIÁ TRỊ CỦA QRCODE SAU KHI QUÉT>
+
+# 200: GardenDetailResponse.IFind;         <== IMPORTANT
+# 404: 
+
+// SAMEPLE KHU VƯỜN CHƯA CÓ DATA
+###
+GET {{host}}/resources/agricultural-produce/farm-garden/garden-detail/find/6358af49409d558bbbd87781
+Authorization: {{auth}}
+###
+
+
+// SAMEPLE KHU VƯỜN ĐÃ CÓ DATA
+###
+GET {{host}}/resources/agricultural-produce/farm-garden/garden-detail/find/6357293d59133d79f3346dc9
+Authorization: {{auth}}
+###
+
+# CÁCH HIỂN THỊ SỐ LẦN BÓN PHÂN THEO THỨ TỰ 1, 2, 3.. 
+# LÀ SẮP XẾP CREATEDAT TRONG FERTILIZERSHISTORY THEO
+# THỨ TỰ TĂNG DẦN   
+
+# CÁCH HIỂN THỊ SỐ LẦN PHUN THUỐC THEO THỨ TỰ 1, 2, 3.. 
+# LÀ SẮP XẾP CREATEDAT TRONG SPRAYINGHISTORY THEO
+# THỨ TỰ TĂNG DẦN   
+
+
+////  Ví dụ cấu trúc trả về
+# {
+#   "_id": "631b38ed2f63cd154770c1f5",
+#   "ownerName": "Trang trại 4TE",
+#   "gardenCode": "Vườn chuối",
+#   "plantVarietiesId": null,
+#   "plantVarietiesSupplierId": null,
+#   "plantVarietiesName": null,
+#   "plantVarietiesSupplierName": null,
+#   "createdAt": "2022-09-09T13:00:29.429Z",
+#   "fertilizersHistory": [],
+#   "sprayingHistory": [],
+#   "harvestDate": []
+# }
+
+
+
+
+
+// GIỐNG CÂY TRỒNG ===============================================
+
+# Lấy danh sách các giống cây trồng tương ứng 
+###
+GET {{host}}/resources/agricultural-produce/farm-garden/plant-varieties/list
+Authorization: {{auth}}
+
+
+# Lấy danh sách nhà cung cấp giống cây trồng tương ứng 
+# Cấu trúc url: ...find/<ID tương ứng>
+###
+GET {{host}}/resources/agricultural-produce/farm-garden/plant-varieties/find/635d46455d1321ddd8b6aed5
+Authorization: {{auth}}
+###
+
+
+
+
+
+
+
+
+
+// PHÂN BÓN =================================================
+
+# Lấy danh sách phân bón 
+###
+GET {{host}}/resources/agricultural-produce/farm-garden/fertilizers/list
+Authorization: {{auth}}
+###
+
+
+# Lấy danh sách nhà cung cấp phân bón tương ứng
+# Cấu trúc url: ...find/<ID tương ứng>
+###
+GET {{host}}/resources/agricultural-produce/farm-garden/fertilizers/find/6314797903e1c02174d0b7fe
+Authorization: {{auth}}
+###
+
+
+
+
+
+
+
+
+
+// THUỐC BẢO VỆ THỰC VẬT =====================================
+
+# Lấy danh sách thuốc bảo vệ thực vật tương ứng
+###
+GET {{host}}/resources/agricultural-produce/farm-garden/pesticides/list
+Authorization: {{auth}}
+###
+
+
+# Lấy danh sách nhà cung cấp thuốc bảo vệ thực vật
+# Cấu trúc url: ...find/<ID tương ứng>
+###
+GET {{host}}/resources/agricultural-produce/farm-garden/pesticides/find/63243fc1ee454c8491042164
+Authorization: {{auth}}
+###
+
+
+
+
+
+
+
+
+
+
+
+
+## = SAU KHI NHẤN NÚT SAVE ==========================================================================================
+// CẤU TRÚC URL: ..../garden-declaration/update/<[ID] TRẢ VỀ SAU KHI QUÉT QRCODE MÃ KHU VƯỜN>
+// [ID] tương ứng với kiểu dữ liệu: GardenDetailResponse.IFind._id
+
+# FormData: GardenDeclarationFormData.IUpdate
+
+###
+PATCH {{host}}/resources/agricultural-produce/farm-garden/garden-declaration/update/635f86e0e1425e9c42ba2926
+Content-Type: application/json
+Authorization: {{auth}}
+
+{
+    "plantVarietiesId": "6357291159133d79f3346dbe",
+    "plantVarietiesSupplierId": "6357291159133d79f3346dbf",
+    "fertilizersHistory": [
+        {
+            "fertilizerId": "6357267359133d79f3346d7f",
+            "supplierId": "6357267359133d79f3346d82"
+        }
+    ],
+    "sprayingHistory": [ 
+        
+    ],
+    "isHarvesting": true
+}
+###
+
+
+
+# Ví dụ cho trường hợp không phun thuốc, không bón phân và chỉ thêm 1 ngày thu hoạch
+###
+PATCH {{host}}/resources/agricultural-produce/farm-garden/garden-declaration/update/6330ebb83f0563883f51e529
+Content-Type: application/json
+Authorization: {{auth}}
+
+{
+    // 2 mục chọn dưới đây là bắt buộc
+    "plantVarietiesId": "632a8ca8d86a6fd5e13d9143",
+    "plantVarietiesSupplierId": "632a9581d86a6fd5e13d91b1",
+
+    "fertilizersHistory": [
+        // Có thể để trống nếu chưa bón phân
+        //{
+        //    "fertilizerId": "6314797903e1c02174d0b7fe",
+        //    "supplierId": "6314797903e1c02174d0b801"
+        //},
+       // {
+       //     "fertilizerId": "6314797903e1c02174d0b7fe",
+       //     "supplierId": "6314797903e1c02174d0b802"
+       // }
+    ],
+    "sprayingHistory": [
+        // Có thể để trống nếu chưa phun thuốc
+        {
+           "pesticidesId": "63243fc1ee454c8491042164",
+            "supplierId": "6330ee353f0563883f51e579"
+        }
+    ]
+    //"isHarvesting": true
+}
+
+###
+
+
+
+
+
+
+
+
+
+
+
+
+# Ví dụ cho trường hợp có bón phân, có ngày thu hoạch
+###
+PATCH {{host}}/resources/agricultural-produce/farm-garden/garden-declaration/update/6330ebb83f0563883f51e529
+Content-Type: application/json
+Authorization: {{auth}}
+
+{
+    "plantVarietiesId": "632a8ca8d86a6fd5e13d9143",
+    "plantVarietiesSupplierId": "632a9581d86a6fd5e13d91ae",
+
+    // Nếu không có bón phân thì để mảng rỗng
+    "fertilizersHistory": [
+        {
+            "fertilizerId": "63147a1203e1c02174d0b807",
+            "supplierId": "63147a1203e1c02174d0b809"
+        }
+    ], 
+
+     // Nếu không có phun thuốc thì để mảng rỗng
+    "sprayingHistory": [
+        {
+           "pesticidesId": "631b51f57254af6868d51519",
+            "supplierId": "631b51f57254af6868d5151b"
+        }
+    ],
+
+     // Nếu không có ngày thêm ngày thu hoạch thì để undefined hoặc false
+    "isHarvesting": true
+}
+###
+
+PATCH {{host}}/resources/agricultural-produce/farm-garden/garden-declaration/update/6358af49409d558bbbd87781
+Content-Type: application/json
+Authorization: {{auth}}
+
+{
+    // 2 mục chọn dưới đây là bắt buộc
+    "plantVarietiesId": "63647812598e98774a7503a4",
+    "plantVarietiesSupplierId": "63647855598e98774a7503b9",
+
+    "fertilizersHistory": [
+        // Có thể để trống nếu chưa bón phân
+        {
+           "fertilizerId": "63686b9e598e98774a750896",
+           "supplierId": "6314797903e1c02174d0b801"
+        },
+       // {
+       //     "fertilizerId": "6314797903e1c02174d0b7fe",
+       //     "supplierId": "6314797903e1c02174d0b802"
+       // }
+    ],
+    "sprayingHistory": [
+        // Có thể để trống nếu chưa phun thuốc
+        {
+           "pesticidesId": "63243fc1ee454c8491042164",
+            "supplierId": "6330ee353f0563883f51e579"
+        }
+    ],
+    "isHarvesting": true
+}

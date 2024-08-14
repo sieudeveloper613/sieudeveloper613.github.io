@@ -1,0 +1,39 @@
+.message-box {
+    display: block;
+    position: fixed;
+    z-index: 0;
+
+    top: 0px;
+    left: 0px;
+
+    width: 0px;
+    height: 0px;
+}
+
+.message-box {
+    > .cover {
+        z-index: 0;
+    }
+
+    > .window {
+        --index: 0;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        z-index: 1;
+
+        top: calc((50vh - 130px) + (var(--index) * 20px));
+        left: calc((50vw - 300px) + (var(--index) * 20px));
+
+        width: 600px;
+        height: 260px;
+
+        border-radius: 5px;
+
+        background-color: white;
+
+        box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.5);
+    }
+}

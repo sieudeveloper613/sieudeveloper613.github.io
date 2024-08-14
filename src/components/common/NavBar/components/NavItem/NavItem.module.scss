@@ -1,0 +1,124 @@
+@mixin variable {
+    --level: 0;
+}
+
+.icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    font-family: var(--icons-google);
+
+    > img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+.title {
+    font-weight: 600;
+}
+
+.drop-down {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    width: 30px;
+    height: 100%;
+
+    font-weight: bold;
+    font-family: var(--icons-google);
+}
+
+.nav-item {
+    @include variable();
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+    background-color: transparent;
+
+    user-select: none;
+    &.display-children {
+        color: black;
+        background-color: white;
+    }
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 16px;
+
+    border-bottom: thin solid lightblue;
+
+    color: inherit;
+
+    cursor: pointer;
+    user-select: none;
+
+    > div {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 16px;
+        width: calc(100% - var(--level) * 30px);
+    }
+
+    &.link {
+        > div {
+            > .title {
+                width: calc(100% - 45px);
+            }
+        }
+        &.is-active {
+            background-color: #F5F5F5;
+
+            &.not-root {
+                background-color: lightgray;
+            }
+
+            > div {
+                > .title,
+                > .icon,
+                > .drop-down {
+                    color: black;
+                }
+            }
+        }
+    }
+
+    &.btn {
+        > div {
+            > .title {
+                width: calc(100% - 80px);
+            }
+        }
+    }
+}
+
+.list {
+    display: none;
+
+    &.display {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+    }
+
+    width: 100%;
+    height: auto;
+
+    > li {
+        display: block;
+
+        width: 100%;
+        height: auto;
+    }
+}

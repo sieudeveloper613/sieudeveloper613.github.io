@@ -1,0 +1,76 @@
+.options {
+    --max-length: 10;
+}
+
+.options {
+    display: block;
+    overflow-x: hidden;
+
+    width: 100%;
+
+    background-color: inherit;
+
+    > li {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        width: 100%;
+        height: var(--selection-option-height);
+
+        padding-left: 10px;
+
+        list-style-type: none;
+        cursor: pointer;
+
+        &.selected {
+            background-color: rgba(0, 100, 255, 0.2);
+        }
+
+        &:hover {
+            background-color: rgba(0, 100, 255, 0.1);
+        }
+    }
+}
+
+.options {
+    /* width */
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        // border-radius: 2px;
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background: #888;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+}
+
+.options {
+    overflow-y: hidden;
+    max-height: 0px;
+    // height: 0px;
+
+    border-top: none;
+
+    &.display {
+        overflow-y: auto;
+        // height: auto;
+        max-height: calc(var(--selection-option-height) * var(--max-length) + 1px);
+
+        border-top: 1px solid gray;
+    }
+
+    transition: max-height 0.3s;
+}

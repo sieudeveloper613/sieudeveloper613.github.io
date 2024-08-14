@@ -1,0 +1,42 @@
+.filter-chart-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    margin: 40px 0;
+
+    .day-chart-select-input {
+        padding: 4px;
+    }
+
+    >button {
+        background-color: grey;
+        border: none;
+        padding: 7px;
+        border-radius: 7px;
+        color: white;
+        font-weight: bold;
+
+        &.active {
+            background-color: blue;
+        }
+    }
+
+    .year-select-input {
+        width: 100px;
+    }
+
+    .btn-view {
+        background-color: blue;
+        padding: 7px 20px;
+    }
+
+    .product-select-input {
+        width: 200px;
+    }
+
+    .select-obj {
+        width: 100%;
+    }
+}

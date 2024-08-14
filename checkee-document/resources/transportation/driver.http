@@ -1,0 +1,100 @@
+@host = http://checkapi.crmdvs.vn
+# @host = http://127.0.0.1:3002
+# @auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MDg4MDgxMX0.CzfubPPPuZoraRFlq8tAlzusi5h74DuiYDvHyirQJ8E;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJpYXQiOjE2NjA4ODA4MTF9.pMXr06F1XSX26LAZ4HYOwxi32uxlTeH7JTMDNUiElFo
+
+
+# {
+#     "userName": "trangtrailoaigiong@gmail.com",
+#     "password": "00000000"
+# }
+@auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzA4Njg1MmU4OGRjZDMzMGNmYmM1ZTMiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MTQ5NTQ0OX0.RNK7YZHN6OEeZ0xTYb3BmdOaTwJ-9OGGm96yHPY3Mgw;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzA4Njg1MmU4OGRjZDMzMGNmYmM1ZTMiLCJpYXQiOjE2NjE0OTU0NDl9.Ph32NB1G4ZgE-dKi4ci8TV9O2yS7DXCmIZjLbz8lass
+
+
+
+
+### create ============================================
+# Method: POST
+# URL: /resources/agricultural-produce/farm-garden/fertilizers/create
+
+# HTTP/1.1 400 Bad Request
+# IBadRequest
+
+
+# 201: Thành công
+
+
+POST {{host}}/resources/transportation/driver/create
+Content-Type: application/json
+Authorization: {{auth}}
+
+{
+    "name": "Nguyễn Văn F",
+    "phone": "4521245512"
+}
+
+
+
+
+
+
+### update =======================================================
+# Method: PATCH
+# URL: /resources/agricultural-produce/farm-garden/fertilizers/update/<_id của đối tượng cần cập nhật>
+
+
+# HTTP/1.1 400 Bad Request
+# IBadRequest
+
+
+# 201: Thành công
+
+
+# 404: _id không tồn tại, _id không phải objectID
+
+
+# Not Found
+###
+PATCH  {{host}}/resources/transportation/driver/update/630997adc4e71fb10182c641
+Content-Type: application/json
+Authorization: {{auth}}
+
+{
+    "name": "Nguyễn Văn F (Update)",
+    "phone": "4521245512"
+}
+
+
+
+
+
+### remove ====================================================
+# Method: DELETE
+# URL: /resources/agricultural-produce/farm-garden/fertilizers/remove/<_id cần xóa>
+# body: undefined
+
+
+# 200: Xóa thành công
+# HTTP/1.1 200 OK
+
+
+# 404: _id cần xóa không tồn tại hoặc không phải objectId hoặc đã xóa rồi
+# HTTP/1.1 404 Not Found
+# Content-Type: text/plain; charset=utf-8
+
+# Not Found
+
+DELETE {{host}}/resources/transportation/driver/remove/6309980ac4e71fb10182c64d
+Authorization: {{auth}}
+
+
+
+
+
+
+### list ====================================================
+
+# 200: Thành công
+
+###
+GET {{host}}/resources/transportation/driver/list
+Authorization: {{auth}}

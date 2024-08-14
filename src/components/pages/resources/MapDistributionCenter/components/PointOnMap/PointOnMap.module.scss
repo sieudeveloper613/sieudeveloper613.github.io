@@ -1,0 +1,20 @@
+.wrapper-PointOnMap {
+    position: relative;
+    .icon {
+        font-family: var(--icons-google);
+        color: rgb(230, 89, 33);
+        position: absolute;
+        font-size: 22px;
+    }
+    > p {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background-color: #fff;
+        font-size: 11px;
+        width: 100px;
+        border-radius: 5px;
+        word-wrap: break-word;
+        padding: 5px;
+    }
+}

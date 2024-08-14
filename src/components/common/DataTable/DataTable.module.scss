@@ -1,0 +1,47 @@
+@mixin variables {
+    --row-height: 40px;
+    --number-of-items: 0;
+}
+
+.data-table {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    &.hidden {
+        overflow-y: hidden;
+        max-height: 0px;
+    }
+}
+
+.table {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-collapse: collapse;
+    overflow: scroll;
+
+    tr {
+        border: 1px solid;
+        height: var(--row-height);
+    }
+
+    &table,
+    td,
+    th {
+        line-height: 20px;
+        padding: 12px;
+        letter-spacing: 1px;
+        border: 1px solid #e5e5e5;
+    }
+
+    // th {
+    //     min-width: 164px;
+    // }
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    transition: height 0.3s;
+}

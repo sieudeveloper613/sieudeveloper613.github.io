@@ -1,0 +1,18 @@
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    justify-items: baseline;
+    align-items: center;
+
+    width: 100%;
+    height: auto;
+
+    padding: 20px;
+
+    .text-field,
+            .selection {
+                width: calc(100%);
+            }
+
+}

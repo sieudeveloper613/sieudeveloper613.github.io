@@ -1,0 +1,3 @@
+import ProcessingFacilityStatisticalReportsPage from './ProcessingFacilityStatisticalReportsPage';
+
+export default ProcessingFacilityStatisticalReportsPage;

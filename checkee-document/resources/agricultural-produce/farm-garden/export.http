@@ -1,0 +1,45 @@
+# @host = http://checkapi.crmdvs.vn
+@host = http://127.0.0.1:3002
+# @auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MDg4MDgxMX0.CzfubPPPuZoraRFlq8tAlzusi5h74DuiYDvHyirQJ8E;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJpYXQiOjE2NjA4ODA4MTF9.pMXr06F1XSX26LAZ4HYOwxi32uxlTeH7JTMDNUiElFo
+
+
+# {
+#     "userName": "trangtrailoaigiong@gmail.com",
+#     "password": "00000000"
+# }
+@auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzA4Njg1MmU4OGRjZDMzMGNmYmM1ZTMiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MTQ5NTQ0OX0.RNK7YZHN6OEeZ0xTYb3BmdOaTwJ-9OGGm96yHPY3Mgw;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzA4Njg1MmU4OGRjZDMzMGNmYmM1ZTMiLCJpYXQiOjE2NjE0OTU0NDl9.Ph32NB1G4ZgE-dKi4ci8TV9O2yS7DXCmIZjLbz8lass
+
+
+# Lấy danh sách các nhà vận chuyển ====================================================
+# /resources/agricultural-produce/farm-garden/export/list-shipping-service
+# 200: ExportResponse.TListshippingService
+
+# 400 Bad Request
+###
+GET   {{host}}/resources/agricultural-produce/farm-garden/export/list-shipping-service
+Authorization: {{auth}}
+###
+
+
+
+
+
+# Lấy danh sách các tài xế ====================================================
+# /resources/agricultural-produce/farm-garden/export/list-driver?id=<>
+# 200: ExportResponse.TListDriver
+
+# 400 Bad Request
+###
+GET   {{host}}/resources/agricultural-produce/farm-garden/export/list-driver?id=630ed12a91296aa07e53f2fe
+Authorization: {{auth}}
+###
+
+# Lấy danh sách các xe ====================================================
+# /resources/agricultural-produce/farm-garden/export/list-vehicle?id=<>
+# 200: ExportResponse.TListVehicle
+
+# 400 Bad Request
+###
+GET   {{host}}/resources/agricultural-produce/farm-garden/export/list-vehicle?id=630ed12a91296aa07e53f2fe
+Authorization: {{auth}}
+###

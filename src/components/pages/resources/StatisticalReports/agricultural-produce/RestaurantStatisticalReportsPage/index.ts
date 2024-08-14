@@ -1,0 +1,3 @@
+import RestaurantStatisticalReportsPage from "./RestaurantStatisticalReportsPage";
+
+export default RestaurantStatisticalReportsPage;

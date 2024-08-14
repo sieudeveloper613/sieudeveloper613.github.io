@@ -1,0 +1,38 @@
+import api from '../../../../../../api';
+import Validate from '../../../../../../utils/Validate';
+import ProductAgriPage from './ProductAgriPage';
+
+export namespace Self {
+    export const apiContext = api.enterprise.enterpriseProducts.farmGarden;
+    export const validatorContext = Object.freeze({
+        barcode: Validate.minLengthWithTrim(1),
+        expireDate: Validate.requireAndIsNum(),
+        name: Validate.minLengthWithTrim(1),
+        unitByPercent: Validate.smallerThan(100),
+        unitByWeight: Validate.isNumber(),
+        quantity: Validate.isNumber(),
+        country:Validate.isString()
+    });
+
+    // export type TMaterialsCreated = {
+    //     _id: string;
+    //     name: string;
+    //     type: boolean;
+    //     quantity: string;
+    // }[];
+
+    // export type TMaterialsDeleted = string[];
+
+    export type TItemsFormData = {
+        _id: string;
+        name: string;
+        GTIN?: string;
+        code?: string;
+        type?: number;
+        quantity: number;
+    };
+
+    export const KEY = 'NEW';
+}
+
+export default ProductAgriPage;

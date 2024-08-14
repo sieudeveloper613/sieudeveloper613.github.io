@@ -1,0 +1,36 @@
+@mixin variables {
+    --buttons-length: 0;
+}
+
+.input {
+    @include variables();
+    //
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 40px;
+
+    > input {
+        display: block;
+
+        width: calc(100% - (var(--buttons-length) * 60px));
+        height: 100%;
+
+        border-radius: 5px;
+        outline: none;
+        border: 1px solid var(--validate-color);
+
+        padding: 0px 20px;
+
+        font-size: 1.1rem;
+        color: black;
+
+        background-color: white;
+    }
+    &.readonly > input {
+        background-color: rgb(230, 230, 230);
+        cursor: not-allowed;
+    }
+}

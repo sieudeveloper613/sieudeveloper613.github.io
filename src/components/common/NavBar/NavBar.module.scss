@@ -1,0 +1,17 @@
+.nav-bar {
+    display: block;
+    width: var(--navbar-width);
+    min-height: 680px;
+
+    color: white;
+    background-color: #3d8af7;
+}
+@media screen and (max-width: 612px) {
+    .nav-bar {
+    display: none;
+    }
+    .nav-bar.active{
+        display: block;
+        }
+
+}

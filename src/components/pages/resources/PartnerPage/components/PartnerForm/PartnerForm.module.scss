@@ -1,0 +1,10 @@
+.wp {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.selection {
+    margin: 10px 0px;
+    width: calc(50% - 40px);
+}

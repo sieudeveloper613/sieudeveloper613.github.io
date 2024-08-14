@@ -1,0 +1,81 @@
+@host = http://checkapi.crmdvs.vn
+# @host = http://127.0.0.1:3002
+# @auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MDg4MDgxMX0.CzfubPPPuZoraRFlq8tAlzusi5h74DuiYDvHyirQJ8E;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJpYXQiOjE2NjA4ODA4MTF9.pMXr06F1XSX26LAZ4HYOwxi32uxlTeH7JTMDNUiElFo
+
+
+# {
+#     "userName": "",
+#     "password": "00000000"
+# }
+@auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzBjNzM2MDM0YzMyYjFjODE4YjBmNDEiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y2UiLCJyb2xlIjoiZmFybV9nYXJkZW4ifSwiaWF0IjoxNjYxNzYwNTMzfQ.Eu6fWTqtCVAXNg2Gu1BXQwZwfH4Tvf-ZGPw-whHNAj4;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzBjNzM2MDM0YzMyYjFjODE4YjBmNDEiLCJpYXQiOjE2NjE3NjA1MzN9.b7S6guXqWzmZcZu7xkmHf-9GyX3haEMIsapIGXMuwfk
+
+
+
+# processingFacility = 'processing-facility'
+# distributionCenter = 'distribution-center'
+# retail = 'retail'
+# restaurant = 'restaurant'
+
+
+### create ============================================
+# Method: POST
+# URL: /resources/agricultural-produce/farm-garden/fertilizers/create
+
+# HTTP/1.1 400 Bad Request
+# IBadRequest
+
+
+# 201: Thành công
+
+###
+POST {{host}}/resources/participants/create/processing-facility
+Content-Type: application/json
+Authorization: {{auth}}
+
+{
+    "name": "Đối tượng tham gia 3",
+    "phone": "1245236590",
+    "email": "a3@gmail.com",
+    "address": {
+        "city": "TP.HCM",
+        "district": "Thủ Đức",
+        "ward": "ABC",
+        "location": "123, Nguyễn Xiển",
+        "lat": "lat1",
+        "lng": "lng1"
+    }
+}
+
+
+
+### update ======================================================
+PATCH  {{host}}/resources/participants/update/processing-facility/630c745f7c41998afa71faca
+Content-Type: application/json
+Authorization: {{auth}}
+
+{
+    "name": "Đối tượng tham gia (update)",
+    "phone": "7854568752",
+    "email": "abcdd@gmail.com",
+    "address": {
+        "city": "TP.HCM",
+        "district": "Thủ Đức",
+        "ward": "ABC",
+        "location": "123, Nguyễn Xiển",
+        "lat": "lat1",
+        "lng": "lng1"
+    }
+}
+
+
+
+### remove
+DELETE {{host}}/resources/participants/remove/processing-facility/630c746a7c41998afa71facc
+Content-Type: application/json
+Authorization: {{auth}}
+
+
+### list
+GET {{host}}/resources/participants/list/processing-facility
+Content-Type: application/json
+Authorization: {{auth}}

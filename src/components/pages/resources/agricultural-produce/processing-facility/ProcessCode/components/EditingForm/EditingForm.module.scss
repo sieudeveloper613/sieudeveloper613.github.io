@@ -1,0 +1,86 @@
+.container {
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    background-color: bisque;
+
+    .children-row {
+        flex: 1;
+        gap: 60px;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 24px;
+        justify-content: space-between;
+    }
+    
+    .left-container {
+        flex: 1;
+        gap: 24px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .qr-image {
+            padding: 4px;
+            border-radius: 16px;
+            border: 1px solid #ddd;
+            background-color: white;
+        }
+    
+        .download-button {
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 24px;
+            background-color: black;
+    
+            .download-icon {
+                color: white;
+                font-size: 24px;
+                font-family: var(--icons-google);
+            }
+        }
+    }
+
+    .right-container {
+        flex: 1;
+        gap: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .column {
+            gap: 4px;
+            display: inline-flex;
+            flex-direction: column;
+
+            > label {
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .input, select {
+                border: none;
+                padding: 12px;
+                font-size: 16px;
+                border-radius: 24px;
+                letter-spacing: 0.5px;
+                background-color: lightgray;
+                color: black;
+                cursor: not-allowed;
+            }
+        }
+
+    }
+
+    .create-button {
+        border: none;
+        padding: 12px;
+        border-radius: 24px;
+        background-color: dodgerblue;
+
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+    }
+}

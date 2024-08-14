@@ -1,0 +1,17 @@
+.container {
+    margin: 10px 40px;
+
+    .selection-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .selection {
+            width: 40%;
+        }
+    }
+
+    .table-data {
+        margin-top: 20px;
+    }
+}

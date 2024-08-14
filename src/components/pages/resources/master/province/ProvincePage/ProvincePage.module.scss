@@ -1,0 +1,13 @@
+.statistical-report-container {
+    .product-reports {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .chart-container {
+        margin-top: 20px;
+    }
+}

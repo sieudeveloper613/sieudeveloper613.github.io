@@ -1,0 +1,61 @@
+.table-statis-container {
+    width: var(--table-width);
+    margin-top: 20px;
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+
+        tr {
+            border: 1px solid #f7f7f6;
+        }
+
+        td {
+            border: 1px solid #f7f7f6;
+            text-align: center;
+            height: 40px;
+            background-color: white;
+            color: black;
+        }
+
+        th {
+            border: 1px solid #f7f7f6;
+            text-align: center;
+            height: 40px;
+            background-color: #54ad32;
+            color: white;
+        }
+        .view{
+            > div {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+
+                width: 100%;
+                height: 100%;
+
+                > button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    width: 30px;
+                    height: 30px;
+
+                    outline: none;
+                    border: none;
+
+                    font-size: 25px;
+                    font-family: var(--icons-google);
+                    font-weight: bold;
+
+                    background-color: transparent;
+
+                    &:hover {
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+    }
+}

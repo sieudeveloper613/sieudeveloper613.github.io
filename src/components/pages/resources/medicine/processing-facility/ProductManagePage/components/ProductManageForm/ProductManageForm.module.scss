@@ -1,0 +1,112 @@
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    justify-items: baseline;
+    align-items: center;
+
+    width: 100%;
+    height: auto;
+
+    padding: 20px;
+
+    >ul:not(.selection-container) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        height: auto;
+
+        >li {
+            display: block;
+
+            width: 50%;
+            height: 140px;
+
+            padding: 15px;
+
+            >.text-field,
+            .selection {
+                width: calc(100%);
+            }
+        }
+
+        >.date-container {
+            display: flex;
+            align-items: center;
+
+            width: 50%;
+            height: 50px;
+
+            padding: 15px;
+
+            >label {
+                margin-right: 10px;
+            }
+
+            >input {
+                height: 40px;
+                font-size: 15px;
+            }
+        }
+
+        >li.text-editor-container {
+            display: block;
+            height: auto;
+            width: 100%;
+
+            padding: 15px;
+
+        }
+
+    }
+
+    >ul.selection-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        height: auto;
+
+        >li {
+            display: flex;
+            align-items: flex-start;
+            margin-right: 10px;
+
+            .selection,
+            .text-field {
+                width: calc(100%);
+                margin-right: 2px;
+            }
+
+            >.text {
+                font-size: 2rem;
+                margin-right: 10px;
+                position: relative;
+                top: 30px;
+            }
+
+            >input {
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+                cursor: pointer;
+                position: relative;
+                top: 30px;
+            }
+
+
+        }
+
+        >.button {
+            position: relative;
+            top: 34px;
+        }
+    }
+
+    >.data-table-wrap {
+        margin-top: 50px;
+    }
+
+}

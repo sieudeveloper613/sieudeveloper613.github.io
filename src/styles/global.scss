@@ -1,0 +1,31 @@
+@import './imports.scss';
+@import './global-variables.scss';
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+}
+
+body {
+    display: block;
+    overflow-x: hidden;
+
+    width: 100%;
+    min-height: 100vh;
+    // font-family: 'Patrick Hand', cursive;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+button {
+    cursor: pointer;
+}

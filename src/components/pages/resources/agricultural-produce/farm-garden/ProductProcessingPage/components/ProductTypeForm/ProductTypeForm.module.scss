@@ -1,0 +1,30 @@
+.wp {
+    display: flex;
+    height: 100%;
+    border-bottom: 2px double #e5e5e5;
+
+    >.item {
+        display: flex;
+        width: calc(100% / 2);
+        border-right: 10px solid white;
+        justify-content: center;
+        align-items: flex-start;
+
+        >.button {
+            // min-width: 100px;
+            min-height: 30px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            background-color: #51E5FF;
+            color: white;
+            margin: 10px 0;
+            padding:0 15px
+        }
+
+    }
+
+    >.item:last-child {
+        border-right: none;
+    }
+}

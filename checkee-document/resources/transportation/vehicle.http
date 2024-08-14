@@ -1,0 +1,101 @@
+@host = http://checkapi.crmdvs.vn
+# @host = http://127.0.0.1:3002
+@auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MDg4MDgxMX0.CzfubPPPuZoraRFlq8tAlzusi5h74DuiYDvHyirQJ8E;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJpYXQiOjE2NjA4ODA4MTF9.pMXr06F1XSX26LAZ4HYOwxi32uxlTeH7JTMDNUiElFo
+
+
+# {
+#     "userName": "trangtrailoaigiong@gmail.com",
+#     "password": "00000000"
+# }
+# @auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzA4Njg1MmU4OGRjZDMzMGNmYmM1ZTMiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MTQ5NTQ0OX0.RNK7YZHN6OEeZ0xTYb3BmdOaTwJ-9OGGm96yHPY3Mgw;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzA4Njg1MmU4OGRjZDMzMGNmYmM1ZTMiLCJpYXQiOjE2NjE0OTU0NDl9.Ph32NB1G4ZgE-dKi4ci8TV9O2yS7DXCmIZjLbz8lass
+
+
+
+
+### create ============================================
+# Method: POST
+# URL: /resources/agricultural-produce/farm-garden/fertilizers/create
+
+# HTTP/1.1 400 Bad Request
+# IBadRequest
+
+
+# 201: Thành công
+
+
+POST {{host}}/resources/transportation/vehicle/create
+Content-Type: application/json
+Authorization: {{auth}}
+
+{
+    "licensePlates": "55E54-25AB",
+    "vehicleType": "Xe container 25 tấn",
+    "email": "xecontainer25tan@gmail.com"
+}
+
+
+
+
+
+
+### update =======================================================
+# Method: PATCH
+# URL: /resources/agricultural-produce/farm-garden/fertilizers/update/<_id của đối tượng cần cập nhật>
+
+
+# HTTP/1.1 400 Bad Request
+# IBadRequest
+
+
+# 201: Thành công
+
+
+# 404: _id không tồn tại, _id không phải objectID
+
+
+# Not Found
+###
+PATCH  {{host}}/resources/transportation/vehicle/update/63098e1e7e9a62145f6eb005
+Content-Type: application/json
+Authorization: {{auth}}
+
+{
+    "licensePlates": "55154-25AB (update)",
+    "vehicleType": "Xe container 30 tấn (update)",
+    "email": "xecontainer30tan.update@gmail.com"
+}
+
+
+
+
+
+### remove ====================================================
+# Method: DELETE
+# URL: /resources/agricultural-produce/farm-garden/fertilizers/remove/<_id cần xóa>
+# body: undefined
+
+
+# 200: Xóa thành công
+
+
+# 404: _id cần xóa không tồn tại hoặc không phải objectId hoặc đã xóa rồi
+# HTTP/1.1 404 Not Found
+# Content-Type: text/plain; charset=utf-8
+
+# Not Found
+
+DELETE {{host}}/resources/transportation/vehicle/remove/63098e367e9a62145f6eb008
+Authorization: {{auth}}
+
+
+
+
+
+
+### list ====================================================
+
+# 200: Thành công
+
+###
+GET {{host}}/resources/transportation/vehicle/list
+Authorization: {{auth}}

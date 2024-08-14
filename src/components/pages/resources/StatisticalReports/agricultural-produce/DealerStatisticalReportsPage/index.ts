@@ -1,0 +1,3 @@
+import DealerStoreStatisticalReportsPage from "./DealerStoreStatisticalReportsPage";
+
+export default DealerStoreStatisticalReportsPage;

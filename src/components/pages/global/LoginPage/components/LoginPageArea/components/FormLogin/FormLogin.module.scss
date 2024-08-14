@@ -1,0 +1,90 @@
+.form-login {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 600px;
+    height: 100%;
+
+    background-color: white;
+
+    padding: 30px;
+    padding-top: 10vh;
+
+    box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.4), -5px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    display: block;
+
+    width: 50px;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    font-family: var(--icons-google);
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+
+    background-color: rgb(245, 0, 87);
+}
+
+.title {
+    display: block;
+    height: 3rem;
+
+    line-height: 3rem;
+}
+
+.input {
+    display: block;
+    width: 100%;
+    height: 50px;
+
+    border-radius: 5px;
+    border: thin solid rgba(0, 0, 0, 0.5);
+
+    padding: 5px;
+
+    margin: 10px 0px;
+
+    > input {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        border: none;
+        outline: none;
+    }
+}
+
+.remember-login {
+    display: block;
+
+    width: 100%;
+
+    margin: 10px 0px;
+
+    > input[type='checkbox'] {
+        margin-right: 1rem;
+    }
+}
+
+.button-login {
+    display: block;
+
+    width: 100%;
+    height: 40px;
+
+    outline: none;
+    border: none;
+    border-radius: 5px;
+
+    margin: 10px 0px;
+
+    color: white;
+
+    background-color: blue;
+}

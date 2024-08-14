@@ -1,0 +1,208 @@
+### create =========================================
+# METHOD: POST
+# URL: /resources/user/create
+
+
+# 201: Tạo thành công
+
+# 401, 403: Thiếu token
+
+# 400: Invalid FormData
+
+# 500: Save failure or server error
+
+###
+POST http://127.0.0.1:3002/resources/master/user/create
+Content-Type: application/json
+Authorization: accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MGIxNDhhZmJhZDVjYzIxODk2MWIiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoibWFzdGVyIiwicm9sZSI6InVuZGVmaW5lZCJ9LCJpYXQiOjE2NjA1MDE4MjZ9.k_cfNBenP2k9v-73iVcsHKnbZqiFER7Koapvg501mHM;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MGIxNDhhZmJhZDVjYzIxODk2MWIiLCJpYXQiOjE2NjA1MDE4MjZ9.LjUZeiEzmFK4N0TVAQx800rqSqtasGW4QEhAhLiS2VM
+
+{
+    "name": "Nguyễn Văn D",
+    "taxCode": "451542145",
+    "address": {
+        "city": "TP.HCM",
+        "district": "Thủ Đức",
+        "ward": "ABC",
+        "location": "123, Nguyễn Xiển",
+        "lat": "lat1",
+        "lng": "lng1"
+    },
+    "phone": "0123456700",
+    "email": "nguyenvand@gmail.com",
+    "permission": {
+        "resource": "agricultural-products",
+        "role": "farm_garden"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### update =========================================
+# METHOD: PATCH
+# URL: /resources/user/update/<ID của đối tượng cần update>
+
+
+# 200: Lưu thành công
+
+# 404: Tài nguyên không có sãn, ID truyền vào không tồn tại
+
+# 401, 403: Thiếu token
+
+# 400: Invalid FormData
+
+# 500: Save failure or server error
+
+###
+PATCH  http://127.0.0.1:3002/resources/master/user/update/62f9402e338082f25a025336
+Content-Type: application/json
+Authorization: accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MGIxNDhhZmJhZDVjYzIxODk2MWIiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoibWFzdGVyIiwicm9sZSI6InVuZGVmaW5lZCJ9LCJpYXQiOjE2NjA1MDE4MjZ9.k_cfNBenP2k9v-73iVcsHKnbZqiFER7Koapvg501mHM;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MGIxNDhhZmJhZDVjYzIxODk2MWIiLCJpYXQiOjE2NjA1MDE4MjZ9.LjUZeiEzmFK4N0TVAQx800rqSqtasGW4QEhAhLiS2VM
+
+{
+    "name": "Nguyễn Văn A",
+    "taxCode": "451542154514",
+    "address": {
+        "city": "TP.HCM",
+        "district": "Thủ Đức",
+        "ward": "ABC",
+        "location": "123, Nguyễn Xiển",
+        "lat": "lat1",
+        "lng": "lng1"
+    },
+    "phone": "4562136548",
+    "email": "nguyenvana@gmail.com",
+    "permission": {
+        "resource": "agricultural-products",
+        "role": "farm_garden"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### delete/remove =========================================
+# METHOD: DELETE
+# URL: /resources/user/remove/<ID của đối tượng cần remove>
+
+
+# 200: Xóa thành công
+
+# 404: Tài nguyên không có sãn, ID truyền vào không tồn tại
+
+# 401, 403: Thiếu token
+
+# 400: Invalid FormData
+
+# 500: Save failure or server error
+
+###
+DELETE http://127.0.0.1:3002/resources/master/user/remove/62f9cd98f31097110f38a4ef
+Content-Type: application/json
+Authorization: accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MGIxNDhhZmJhZDVjYzIxODk2MWIiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoibWFzdGVyIiwicm9sZSI6InVuZGVmaW5lZCJ9LCJpYXQiOjE2NjA1MDE4MjZ9.k_cfNBenP2k9v-73iVcsHKnbZqiFER7Koapvg501mHM;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MGIxNDhhZmJhZDVjYzIxODk2MWIiLCJpYXQiOjE2NjA1MDE4MjZ9.LjUZeiEzmFK4N0TVAQx800rqSqtasGW4QEhAhLiS2VM
+
+
+
+
+
+
+
+
+
+
+
+
+### list =========================================
+# METHOD: GET
+# URL: /resources/user/list/<EResource>/<ERole>
+
+
+# 200: Thành công
+
+# 404: Tài nguyên không có sãn, <EResource> hoặc <ERole> không hợp lệ
+
+# 401, 403: Thiếu token
+
+# 500: Save failure or server error
+
+###
+GET http://127.0.0.1:3002/resources/master/user/list/agricultural-products/farm_garden
+Content-Type: application/json
+Authorization: accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MGIxNDhhZmJhZDVjYzIxODk2MWIiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoibWFzdGVyIiwicm9sZSI6InVuZGVmaW5lZCJ9LCJpYXQiOjE2NjA1MDE4MjZ9.k_cfNBenP2k9v-73iVcsHKnbZqiFER7Koapvg501mHM;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MGIxNDhhZmJhZDVjYzIxODk2MWIiLCJpYXQiOjE2NjA1MDE4MjZ9.LjUZeiEzmFK4N0TVAQx800rqSqtasGW4QEhAhLiS2VM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Lấy danh sách các đối tác
+
+// Cấu trúc URL: list-partner/<userId>
+// userId: userId là _id của user danh sách các tài khoản trong master
+
+# 200: PartnerResponse.TList
+
+###
+GET http://127.0.0.1:3002/resources/master/user/list-partner/6314781203e1c02174d0b7e9
+Content-Type: application/json
+Authorization: accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MGIxNDhhZmJhZDVjYzIxODk2MWIiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoibWFzdGVyIiwicm9sZSI6InVuZGVmaW5lZCJ9LCJpYXQiOjE2NjA1MDE4MjZ9.k_cfNBenP2k9v-73iVcsHKnbZqiFER7Koapvg501mHM;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MGIxNDhhZmJhZDVjYzIxODk2MWIiLCJpYXQiOjE2NjA1MDE4MjZ9.LjUZeiEzmFK4N0TVAQx800rqSqtasGW4QEhAhLiS2VM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Lấy danh sách các đối tượng tham gia
+
+
+// Cấu trúc URL: list-participants/<userId>/<EParticipantsRole>
+    # userId: userId là _id của user danh sách các tài khoản trong master
+    # EParticipantsRole: là vai trò của đối tác (có trong sharetype)
+    
+# 200: ParticipantsResponse.TList
+
+###
+GET http://127.0.0.1:3002/resources/master/user/list-participants/6314781203e1c02174d0b7e9/processing-facility
+Content-Type: application/json
+Authorization: accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MGIxNDhhZmJhZDVjYzIxODk2MWIiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoibWFzdGVyIiwicm9sZSI6InVuZGVmaW5lZCJ9LCJpYXQiOjE2NjA1MDE4MjZ9.k_cfNBenP2k9v-73iVcsHKnbZqiFER7Koapvg501mHM;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmY5MGIxNDhhZmJhZDVjYzIxODk2MWIiLCJpYXQiOjE2NjA1MDE4MjZ9.LjUZeiEzmFK4N0TVAQx800rqSqtasGW4QEhAhLiS2VM
+

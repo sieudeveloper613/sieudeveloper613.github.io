@@ -1,0 +1,22 @@
+.button-remove-selected {
+    display: none;
+    &.display {
+        display: block;
+    }
+
+    width: calc(var(--selection-height) - 10px);
+    aspect-ratio: 1;
+
+    border: none;
+    outline: none;
+    border-radius: 50%;
+
+    font-family: var(--icons-google);
+    font-size: calc(var(--selection-height) - 20px);
+
+    background-color: transparent;
+
+    &:hover {
+        background-color: rgba(0, 100, 255, 0.1);
+    }
+}

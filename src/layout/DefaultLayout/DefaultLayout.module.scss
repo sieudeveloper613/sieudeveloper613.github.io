@@ -1,0 +1,47 @@
+.default-layout {
+    display: block;
+
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+}
+
+.default-layout-client {
+    display: block;
+    background-color: blue;
+    width: 100%;
+    height: calc(100vh);
+}
+
+.container {
+    display: flex;
+    background-color: #F5F5F5;
+    > .navbar {
+        background-color: royalblue;
+        display: flex;
+    }
+
+    > main {
+        width: 100%;
+        margin: 24px;
+        display: flex;
+        max-width: 100%;
+        overflow: hidden;
+        border-radius: 8px;
+        flex-direction: column;
+        padding: 0px 0px 12px 0px;
+        background-color: #FFFFFF;
+        // width: calc(100% - var(--navbar-width));
+    }
+
+    .full {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 612px) {
+    .container {
+        >main {
+            width: calc(100%);
+        }
+    }
+}

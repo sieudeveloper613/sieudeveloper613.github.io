@@ -1,0 +1,38 @@
+@host = http://checkapi.crmdvs.vn
+#@host = http://127.0.0.1:3002
+# @auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MDg4MDgxMX0.CzfubPPPuZoraRFlq8tAlzusi5h74DuiYDvHyirQJ8E;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJpYXQiOjE2NjA4ODA4MTF9.pMXr06F1XSX26LAZ4HYOwxi32uxlTeH7JTMDNUiElFo
+
+###
+
+POST {{host}}/login/sign-in
+Content-Type: application/json
+
+{
+    "userName": "trangtrai4te@gmail.com",
+    "password": "00000000"
+}
+###
+@auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzU3MjUzZDU5MTMzZDc5ZjMzNDZkNmMiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y2UiLCJyb2xlIjoiZmFybV9nYXJkZW4ifSwibmFtZSI6IlRyYW5nIFRy4bqhaSA0VEUiLCJvd25lcklkIjoiNjM1NzI1M2Q1OTEzM2Q3OWYzMzQ2ZDZjIiwiaWF0IjoxNjY3MjA3MTUzfQ.FwbrOG3IUZbZYLd0BHtxkuLBfP-qUcZOsr7aBjaSH2M;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzU3MjUzZDU5MTMzZDc5ZjMzNDZkNmMiLCJpYXQiOjE2NjcyMDcxNTN9.OSkEEFzrXcL5duBVrIq3pxSkYrRFagCkr-F-NK4_2pU
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// TAG: ##laydanhsachthungnongsan
+// 
+# 200: AgriculturalContainerResponse.IFind
+###
+GET {{host}}/resources/agricultural-produce/farm-garden/traceability-management/list
+Content-Type: application/json
+Authorization: {{auth}}
+
+###

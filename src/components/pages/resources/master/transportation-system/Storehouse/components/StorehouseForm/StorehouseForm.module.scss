@@ -1,0 +1,17 @@
+.input-container {
+    padding: 40px;
+
+    input {
+        width: 400px;
+    }
+
+    .top-input-container {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .bottom-input-container {
+        margin-top: 15px;
+    }
+}

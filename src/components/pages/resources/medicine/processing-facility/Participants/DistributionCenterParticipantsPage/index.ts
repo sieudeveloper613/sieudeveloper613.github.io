@@ -1,0 +1,3 @@
+import DistributionCenterParticipantsPage from './DistributionCenterParticipantsPage';
+
+export default DistributionCenterParticipantsPage;

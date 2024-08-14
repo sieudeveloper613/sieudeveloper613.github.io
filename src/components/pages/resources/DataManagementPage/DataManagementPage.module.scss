@@ -1,0 +1,126 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .header-container {
+        gap: 24px;
+        display: flex;
+        padding: 24px;
+        border-radius: 8px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #F5F5F5;
+        margin: 24px 0px;
+
+        .picture-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .picture {
+                width: 360px;
+                height: auto;
+                padding: 8px;
+                border-radius: 4px;
+                border: 1px solid #ddd;
+                background-size: contain;
+                background-color: white;
+            }
+        }
+
+        .title {
+            gap: 12px;
+            margin: 24px;
+            display: flex;
+            font-size: 1.2rem;
+            text-align: center;
+            flex-direction: column;
+
+            .strong {
+                text-transform: uppercase;
+            }
+    
+            .code-container {
+                padding: 12px;
+                color: white;
+                font-weight: bold;
+                text-align: center;
+                letter-spacing: 4px;
+                border-radius: 24px;
+                background-color: #ff6624;
+            }
+        }
+    }
+}
+
+.strong {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+}
+.icon {
+    &.delete {
+        color: green;
+    }
+    cursor: pointer;
+    color: black;
+    font-size: 32px;
+    font-family: var(--icons-google);
+    display: initial;
+    margin-left: 10px;
+}
+.button-share {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-right: 10px;
+    height: 40px;
+    margin-left: 20px;
+
+    border: none;
+    outline: none;
+    border-radius: 10px;
+
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+
+    background-color: #1da9cf;
+
+    >.icon {
+        display: block;
+        font-size: 20px;
+        padding-right: 10px;
+        font-family: var(--icons-google);
+        color: white;
+    }
+}
+.button-share:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+.header-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 16px;
+}
+
+@media screen and (max-width: 820px) {
+    .header-wrap{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .button-share {
+        margin-left: 0;
+    }
+    .picture-container{
+       .picture{
+        max-width: 100% ;
+        }
+    }
+}

@@ -1,0 +1,85 @@
+.filter-container {
+    .time-container {
+        margin-top: 20px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+
+        > button {
+            background-color: grey;
+            border: none;
+            padding: 7px;
+            border-radius: 7px;
+            color: white;
+            font-weight: bold;
+
+            &.active {
+                background-color: blue;
+            }
+        }
+
+        .day-select-input {
+            padding: 4px;
+        }
+
+        .btn-report {
+            background-color: #3d8af7;
+        }
+
+        .btn-export {
+            background-color: #72bb53;
+        }
+    }
+
+    .participant-container {
+        display: flex;
+        margin-top: 20px;
+        gap: 5px;
+        align-items: flex-end;
+        margin-bottom: 5px;
+
+        .selection-container {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+
+            .select-obj {
+                width: 250px;
+            }
+
+            .input-container {
+                display: flex;
+                flex-direction: column;
+                width: 250px;
+
+                strong {
+                    display: flex;
+                    height: 30px;
+                    width: 100%;
+                    justify-content: flex-start;
+                    align-items: center;
+                }
+
+                input {
+                    outline: none;
+                    height: 40px;
+                    width: 100%;
+                    font-size: 16px;
+                    border: 1px solid black;
+                    border-radius: 5px;
+                    padding: 0 10px;
+                }
+            }
+        }
+
+        > button {
+            padding: 7px;
+            border: none;
+            height: 50%;
+            color: white;
+            font-weight: bold;
+        }
+    }
+}

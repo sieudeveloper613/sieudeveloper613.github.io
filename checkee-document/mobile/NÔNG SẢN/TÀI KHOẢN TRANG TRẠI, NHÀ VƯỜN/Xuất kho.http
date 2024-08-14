@@ -1,0 +1,207 @@
+ @host = http://checkapi.crmdvs.vn
+#@host = http://127.0.0.1:3002
+# @auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MDg4MDgxMX0.CzfubPPPuZoraRFlq8tAlzusi5h74DuiYDvHyirQJ8E;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJpYXQiOjE2NjA4ODA4MTF9.pMXr06F1XSX26LAZ4HYOwxi32uxlTeH7JTMDNUiElFo
+
+###
+POST {{host}}/login/sign-in
+Content-Type: application/json
+
+{
+    "userName": "trangtrai4te@gmail.com",
+    "password": "00000000"
+}
+###
+@auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzU3MjUzZDU5MTMzZDc5ZjMzNDZkNmMiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y2UiLCJyb2xlIjoiZmFybV9nYXJkZW4ifSwibmFtZSI6IlRyYW5nIFRy4bqhaSA0VEUiLCJvd25lcklkIjoiNjM1NzI1M2Q1OTEzM2Q3OWYzMzQ2ZDZjIiwiaWF0IjoxNjY3MjA3MTUzfQ.FwbrOG3IUZbZYLd0BHtxkuLBfP-qUcZOsr7aBjaSH2M;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzU3MjUzZDU5MTMzZDc5ZjMzNDZkNmMiLCJpYXQiOjE2NjcyMDcxNTN9.OSkEEFzrXcL5duBVrIq3pxSkYrRFagCkr-F-NK4_2pU
+
+@baseUrl = resources/agricultural-produce/farm-garden/export-agriculture
+##
+
+
+
+
+
+
+
+
+
+// KIỂM TRA QR CODE CÓ HỢP LỆ
+// /check-if-qrcode-is-valid/:qrcode
+
+# 200: ExportAgricultureContainerResponse.ICheckeIfQrcodeIsValid
+
+@qrcode = qrcode1
+###
+GET {{host}}/{{baseUrl}}/check-if-qrcode-is-valid/thung21
+Authorization: {{auth}}
+###
+
+
+
+
+
+
+
+// TAG ##quetthunghang
+// Quét QR code và hiển thị thông tin khu vườn + thùng hàng.
+# 200: AgriculturalContainerResponse.IFind
+###
+GET {{host}}/resources/agricultural-produce/farm-garden/agricultural-container/find/thung21
+Content-Type: application/json
+Authorization: {{auth}}
+###
+
+
+
+
+
+
+
+// LẤY DANH SÁCH NHÓM ĐỐI TÁC
+### list-partner-options =======================================
+# Cấu trúc URL:/resources/partner/list-partner-options
+###
+GET {{host}}/resources/partner/list-partner-options
+Authorization: {{auth}}
+###
+
+
+
+
+// LẤY DANH SÁCH CÁC ĐỐI TÁC 
+### list-users ==================================================
+# Cấu trúc URL:/resources/partner/list-users/<value lấy từ list-partner-options>
+###
+GET {{host}}/resources/partner/list-users/YWdyaWN1bHR1cmFsLXByb2R1Y2UtLS1wcm9jZXNzaW5nLWZhY2lsaXR5
+Authorization: {{auth}}
+###
+
+
+
+
+
+# LẤY DANH SÁCH CÁC NHÀ VẬN CHUYỂN ====================================================
+# {{baseUrl}}/list-shipping-service
+# 200: ExportResponse.TListshippingService
+
+# 400 Bad Request
+###
+GET {{host}}/{{baseUrl}}/list-shipping-service
+Authorization: {{auth}}
+###
+
+
+
+
+
+# LẤY DANH SÁCH CÁC TÀI XẾ ====================================================
+
+# {{baseUrl}}/list-driver?id=<>
+
+# 200: ExportResponse.TListDriver
+# 400 Bad Request
+
+###
+GET {{host}}/{{baseUrl}}/list-driver
+Authorization: {{auth}}
+###
+
+###
+GET {{host}}/{{baseUrl}}/list-driver?id=631955b94503afc278ed20f8
+Authorization: {{auth}}
+###
+
+
+
+
+
+
+
+
+# LẤY DANH SÁCH CÁC XE ====================================================
+
+# {{baseUrl}}/list-vehicle?id=<>
+
+# 200: ExportResponse.TListVehicle
+
+# SAMPLE id !== 631955b94503afc278ed20f8 // "_id": "631955b94503afc278ed20f8", "name": "Vận chuyển Gojeck "
+###
+GET {{host}}/{{baseUrl}}/list-vehicle?id=631955b94503afc278ed20f8
+Authorization: {{auth}}
+###
+
+
+# SAMPLE id === undefined
+###
+GET {{host}}/{{baseUrl}}/list-vehicle
+Authorization: {{auth}}
+###
+
+
+
+
+
+
+
+
+# LƯU LẠI
+// FormData: ExportAgricultureContainerFormData.ICreateExport
+
+# 200: 
+# {
+#   "saveResult": [
+#     {
+#       "status": "successfully",
+#       "containerId": "632abd564db875305b62f0a4",
+#       "qrcode": "qrcode33"
+#     },
+#     {
+#       "status": "successfully",
+#       "containerId": "632abe3da5d5577e4a7dc5fb",
+#       "qrcode": "qrcode34"
+#     }
+#   ]
+# }
+
+
+
+
+# 400: Thùng nông sản đã được xuất kho
+#
+# {
+#   "containerHasBeenAdded": [
+#     "632abd564db875305b62f0a4",
+#     "632abe3da5d5577e4a7dc5fb"
+#   ]
+# }
+
+
+# 400: Id thùng nông sản không hợp lệ,
+#    Thùng nông sản không thuộc quyền sở hữu của chủ tài khoản
+#    Thùng nông sản không tồn tại
+#    Thùng nông sản đã được thêm
+#
+# {
+#   "invalidContainerIds": [
+#     "632abd564db875305b62f0a2",
+#     "632abe3da5d5577e4a7dc5fc"
+#   ]
+# }
+
+
+
+
+###
+POST {{host}}/{{baseUrl}}/create
+Content-Type: application/json
+Authorization: {{auth}}
+
+{
+    "containersId": [
+        "632abd564db875305b62f0a2",
+        "632abe3da5d5577e4a7dc5fc"
+    ],
+    "receiverId": "6324c874ae1929f595f59d9b",
+    "vehicleName": "62N-3",
+    "driverName": "Nguyễn Văn A"
+}
+###

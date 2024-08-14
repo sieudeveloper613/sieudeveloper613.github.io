@@ -1,0 +1,90 @@
+.default-layout {
+    display: block;
+
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%; 
+    height: 100%;
+
+    > .navbar {
+        background-color: royalblue;
+    }
+
+    > main {
+        height: 100%;
+        display: flex;
+        padding: 32px;
+        overflow: auto;
+        align-items: center;
+        justify-content: center;
+        background-color: #F5F5F5;
+        width: calc(100% - var(--navbar-width));
+
+        > .info-page {
+            display: flex;
+            padding: 24px;
+            width: calc(55%);
+            border-radius: 4px;
+            align-items: center;
+            flex-direction: column;
+            background-color: white;
+            box-shadow: 0px 1px 1px black;
+
+            > .info-page-title {
+                color: black;
+                text-transform: uppercase;
+            }
+
+            > .avatar {
+                display: flex;
+                margin: 32px 0px;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                width: 128px; height: 128px;
+                background-color: orangered;
+                border: 8px solid whitesmoke;
+                
+                color: white;
+                font-size: 60px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            
+            > .info-page-list {
+                gap: 24px;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+
+                > .information-row {
+                    gap: 6px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+
+                    > .label {
+                        color: grey;
+                        font-size: 14px;
+                        font-weight: 300;
+                        letter-spacing: 1.5px;
+                        text-transform: uppercase;
+                    }
+    
+                    > .value {
+                        color: black;
+                        letter-spacing: 0.5px;
+                    }
+                }
+            }
+        }
+    }
+}

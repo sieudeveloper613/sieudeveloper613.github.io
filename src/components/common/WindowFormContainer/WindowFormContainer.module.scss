@@ -1,0 +1,39 @@
+.window-form-container {
+    
+    display: block;
+    position: relative;
+    z-index: 10;
+
+    // top: -100vh;
+    top: 0px;
+
+    width: 0px;
+    height: 0px;
+    // &.display {
+    // }
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    overflow: hidden;
+    z-index: 0;
+
+    top: 100vh;
+    left: 0px;
+
+    width: 100vw;
+    height: 100vh;
+
+    // background-color: blue;
+
+    transition: top 0.3s;
+}
+
+.window-form-container.display > .container {
+    // background-color: blue;
+    top: 0vh;
+}

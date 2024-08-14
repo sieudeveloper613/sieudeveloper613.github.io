@@ -1,0 +1,105 @@
+.wrapper-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px;
+
+    .title {
+        display: flex;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #dadada;
+
+        >li {
+            text-align: left;
+            flex: 1;
+        }
+
+        >li.small-gap {
+            text-align: left;
+            flex: 0.5;
+        }
+    }
+
+    .strong {
+        font-weight: 600;
+    }
+
+    .center {
+        text-align: center !important;
+    }
+
+    .icon {
+        &.delete {
+            color: green;
+        }
+
+        cursor: pointer;
+        color: blue;
+        font-size: 20px;
+        font-family: var(--icons-google);
+    }
+
+    .input {
+        width: 90%;
+        height: 32px;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        padding: 4px 10px;
+
+        &.noData {
+            &::placeholder {
+                color: red;
+            }
+
+            border: 1px solid red;
+        }
+    }
+
+    .body {
+        >ul {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+
+            >li {
+                text-align: left;
+                flex: 1;
+
+                .selection {
+                    width: calc(100% - 10px);
+                }
+
+                .selection-container {
+                    display: flex;
+                    align-items: center;
+
+                    >.selection {
+                        width: calc(100% - 20px);
+                        margin-right: 5px;
+                    }
+
+                    >.icon {
+                        border-radius: 50%;
+                        background-color: #0bb80b;
+                        color: white;
+                        font-size: 20px;
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            >li.small-gap {
+                text-align: left;
+                flex: 0.5;
+            }
+        }
+
+        >ul:not(:last-child) {
+            border-bottom: 1px solid #dadada;
+        }
+    }
+}

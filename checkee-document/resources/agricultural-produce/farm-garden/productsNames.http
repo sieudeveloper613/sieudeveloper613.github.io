@@ -1,0 +1,109 @@
+ @host = http://checkapi.crmdvs.vn
+#host = http://127.0.0.1:3002
+# @auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MDg4MDgxMX0.CzfubPPPuZoraRFlq8tAlzusi5h74DuiYDvHyirQJ8E;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZkYWVkMmEzYTk3ZjUyYmZkNmU2NGQiLCJpYXQiOjE2NjA4ODA4MTF9.pMXr06F1XSX26LAZ4HYOwxi32uxlTeH7JTMDNUiElFo
+
+
+# {
+#     "userName": "trangtrailoaigiong@gmail.com",
+#     "password": "00000000"
+# }
+@auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzA4Njg1MmU4OGRjZDMzMGNmYmM1ZTMiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoiYWdyaWN1bHR1cmFsLXByb2R1Y3RzIiwicm9sZSI6ImZhcm1fZ2FyZGVuIn0sImlhdCI6MTY2MTQ5NTQ0OX0.RNK7YZHN6OEeZ0xTYb3BmdOaTwJ-9OGGm96yHPY3Mgw;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzA4Njg1MmU4OGRjZDMzMGNmYmM1ZTMiLCJpYXQiOjE2NjE0OTU0NDl9.Ph32NB1G4ZgE-dKi4ci8TV9O2yS7DXCmIZjLbz8lass
+
+
+
+# {
+#     "userName": "cosochebien1@gmail.com",
+#     "password": "00000000"
+# }
+# @auth = accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzE3MGZmYTczOTMxZWUwZDNhNTllMTAiLCJwZXJtaXNzaW9uIjp7InJlc291cmNlIjoicGFydGljaXBhbnRzIiwicm9sZSI6InByb2Nlc3NpbmctZmFjaWxpdHkifSwibmFtZSI6IkPGoSBz4bufIGNo4bq_IGJp4bq_biAxIiwiaWF0IjoxNjYzMTIxOTAwfQ.iTwXed4lBeQEVtcHkn6w9myCN1xXEdDJPAmdVcmT5sg;refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzE3MGZmYTczOTMxZWUwZDNhNTllMTAiLCJpYXQiOjE2NjMxMjE5MDB9.qIbbvUbGd_gWAsqF5-ScieOa3abjDs8kUCkY_tuFLFE
+
+
+
+
+
+
+
+### create ============================================
+# Method: POST
+# URL: /resources/agricultural-produce/farm-garden/products-names/create
+
+# HTTP/1.1 400 Bad Request
+# IBadRequest
+
+
+# 201: Thành công
+# ProductsNamesFormData.ICreate
+
+
+POST {{host}}/resources/agricultural-produce/farm-garden/products-names/create
+Content-Type: application/json
+Authorization: {{auth}}
+
+{
+    "name": "san pham 3"
+}
+
+
+
+
+
+
+### update =======================================================
+# Method: PATCH
+# URL: /resources/agricultural-produce/farm-garden/products-names/update/<_id của đối tượng cần cập nhật>
+
+
+# HTTP/1.1 400 Bad Request
+# IBadRequest
+
+
+# 200: Thành công
+# ProductsNamesFormData.IUpdate
+
+
+# 404: _id không tồn tại hoặc _id không phải objectID hoặc người chỉnh sửa không phải là người tạo hoặc đã bị xóa
+
+
+# Not Found
+###
+PATCH  {{host}}/resources/agricultural-produce/farm-garden/products-names/update/63213cdac50898f50c60b2ee
+Content-Type: application/json
+Authorization: {{auth}}
+
+{
+    "name":"san pham 3 co so che bien (updateded)"
+}
+
+
+
+
+### remove
+# Method: DELETE
+# URL: /resources/agricultural-produce/farm-garden/products-names/remove/<_id cần xóa>
+
+
+# 200: Xóa thành công
+# HTTP/1.1 200 OK
+
+
+# 404: _id cần xóa không tồn tại hoặc không phải objectId hoặc đã xóa rồi hoặc không phải là người tạo
+# HTTP/1.1 404 Not Found
+# Content-Type: text/plain; charset=utf-8
+
+# Not Found
+
+DELETE {{host}}/resources/agricultural-produce/farm-garden/products-names/remove/63213cdac50898f50c60b2ee
+Authorization: {{auth}}
+
+
+
+
+
+### GET
+#200: Lấy thành công
+#ProductsNamesResponse.Tlist
+
+GET {{host}}/resources/agricultural-produce/farm-garden/products-names/list
+Authorization: {{auth}}
+
+

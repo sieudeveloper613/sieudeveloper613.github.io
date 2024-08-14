@@ -1,0 +1,23 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 50px;
+
+    > button {
+        display: block;
+
+        border: none;
+        outline: none;
+        border-radius: 5px;
+
+        padding: 10px;
+        margin: 0 4px;
+
+        color: white;
+
+        background-color: #3d8af7;
+    }
+}

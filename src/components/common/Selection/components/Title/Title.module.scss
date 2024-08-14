@@ -1,0 +1,10 @@
+.title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 100%;
+    height: var(--selection-title-height);
+
+    color: black;
+}

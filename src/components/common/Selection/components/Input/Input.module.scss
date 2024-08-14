@@ -1,0 +1,67 @@
+.input {
+    display: block;
+
+    width: 100%;
+    height: var(--selection-height);
+}
+
+.input {
+    .layer {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        width: 100%;
+        height: var(--selection-height);
+
+        padding-left: 10px;
+
+        transition: opacity 0.2s;
+
+        &.label {
+            opacity: 1;
+            &.hidden {
+                opacity: 0;
+            }
+            &.faded {
+                opacity: 0.5;
+            }
+        }
+
+        &.input {
+            opacity: 0;
+            &.display {
+                opacity: 1;
+            }
+
+            > input {
+                display: block;
+
+                width: 100%;
+                height: 100%;
+
+                border: none;
+                outline: none;
+
+                font-size: inherit;
+                font-family: inherit;
+
+                background-color: transparent;
+                // background-color: orange;
+                &.readonly {
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+}
+
+.label-layer {
+    position: relative;
+    z-index: 0;
+}
+
+.input-layer {
+    position: relative;
+    z-index: 1;
+}
